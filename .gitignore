@@ -1,0 +1,58 @@
+__pycache__/                 # Python 自动生成的字节码缓存目录
+*.py[cod]                    # .pyc/.pyo/.pyd 等编译产物
+*$py.class                   # Jython 生成的 class 文件（很少用，但忽略无害）
+
+.venv/                       # 常见虚拟环境目录（本地专用）
+venv/                        # 同上（不同人命名习惯）
+env/                         # 同上
+ENV/                         # 同上
+.conda/                      # 某些工具生成的 conda 目录
+conda-bld/                   # conda 构建缓存目录
+pip-wheel-metadata/          # pip 生成的中间元数据（旧版本可能出现）
+
+.vscode/                     # VS Code 工作区配置（含本机路径/插件设置）
+.idea/                       # PyCharm/IntelliJ 配置目录（含本机索引）
+*.iml                        # IntelliJ 工程文件
+*.code-workspace             # VS Code 工作区文件（可选，不共享更干净)
+
+.DS_Store                    # macOS Finder 生成的隐藏文件
+Thumbs.db                    # Windows 资源管理器缩略图缓存
+desktop.ini                  # Windows 文件夹显示配置
+
+*.log                        # 运行日志文件
+*.tmp                        # 临时文件
+*.temp                       # 临时文件
+*.swp                        # vim 交换文件
+*.swo                        # vim 交换文件
+*~                           # 许多编辑器的临时备份文件
+
+data/raw/                    # 全量原始 VNP46 数据目录（体量大，不进仓库）
+data/full/                   # 全量数据的另一种命名（避免误提交）
+data/download/               # 下载缓存目录（LAADS/手动下载等）
+data/cache/                  # 缓存目录（索引/临时拼接等）
+
+*.h5                         # HDF5（VNP46 常见）
+*.hdf                        # HDF（部分产品或工具导出）
+*.nc                         # NetCDF（有时会转存）
+*.tif                        # GeoTIFF 输出/中间结果（通常很大）
+*.tiff                       # 同上
+*.vrt                        # GDAL 虚拟栅格（通常可重建）
+*.aux.xml                    # GDAL/ArcGIS 生成的辅助元数据（可重建）
+*.ovr                        # 栅格金字塔（可重建，且会很大）
+*.tfw                        # 世界文件（通常是副产物）
+*.prj                        # 投影文件（矢量/栅格副产物，通常可重建）
+*.xml                        # 某些软件导出的元数据（视情况；若你有关键 xml，可改成更精确规则）
+
+output/                      # 统一输出目录（建议你就用这个）
+outputs/                     # 有人喜欢用 outputs
+results/                     # 结果目录（统计表/图/栅格）
+figures/                     # 图片输出（如果想把论文图保留，可改为不忽略）
+tmp/                         # 临时处理目录（mosaic/clip 过程中常用）
+scratch/                     # 临时处理目录
+
+.pytest_cache/               # pytest 缓存
+.coverage                    # coverage 覆盖率文件
+htmlcov/                     # 覆盖率报告目录
+
+!data/sample/                # 不忽略 sample 目录本身
+!data/sample/**              # 不忽略 sample 目录下所有内容（包括 .h5/.tif 等）
