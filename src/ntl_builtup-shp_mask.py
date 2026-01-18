@@ -10,7 +10,7 @@ from rasterio.warp import reproject, Resampling, transform_geom
 
 # ====== 参数 ======
 ntl_dir = "D:/cmafiles/L/database/nighttime/Precess/VNP46A2/"
-out_dir = "D:/cmafiles/L/database/nighttime/Precess/PreResult/VNP46A2"
+out_dir = "D:/cmafiles/L/database/nighttime/Precess/Presult/VNP46A2"
 study_area_shp = "D:/cmafiles/L/database/gis/中国专题图/省级数据/海南省/海南省.shp"
 mcd12q1_files = [
     "D:/cmafiles/L/database/nighttime/LandCover/MCD12Q1.A2024001.h28v06.061.2025206072738.hdf",
@@ -75,7 +75,8 @@ def mask_ntl_with_builtup(landcover, landcover_meta):
             masked = np.where(builtup_mask, ntl_data, np.nan)
 
             base = os.path.basename(ntl_path)
-            out_path = os.path.join(out_dir, f"{base}_builtup_clip.tif")
+            date = base.split("_")[1]
+            out_path = os.path.join(out_dir, f"VNP46A2_{date}_presult.tif")
             out_meta = ntl.meta.copy()
             out_meta.update({"dtype": "float32", "nodata": np.nan})
             with rasterio.open(out_path, "w", **out_meta) as dst:
