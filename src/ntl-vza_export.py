@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Export paired NTL (A1) and VZA (A2) GeoTIFFs to CSV."""
 
 from __future__ import annotations
