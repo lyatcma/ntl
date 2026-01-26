@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import argparse
 import warnings
 from pathlib import Path
 
@@ -42,65 +41,33 @@ def join_admin_name(
     lon_col: str,
     lat_col: str,
     admin_field: str,
+    output_field: str,
 ) -> None:
     polygons = load_polygons(shp_path, admin_field)
     points = load_points(csv_path, lon_col, lat_col)
     joined = gpd.sjoin(points, polygons, how="left", predicate="within")
+    joined = joined.rename(columns={admin_field: output_field})
     joined = joined.drop(columns=["geometry", "index_right"])
     output_csv.parent.mkdir(parents=True, exist_ok=True)
     joined.to_csv(output_csv, index=False)
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(
-        description=(
-            "Join admin names from a shapefile to CSV points by longitude/latitude."
-        )
-    )
-    parser.add_argument(
-        "--csv",
-        type=Path,
-        default=Path(r"D:/cmafiles/L/database/nighttime/Precess/Presults/ntl_vza.csv"),
-        help="Input CSV file containing longitude/latitude columns.",
-    )
-    parser.add_argument(
-        "--shp",
-        type=Path,
-        default=Path(r"D:/cmafiles/L/database/gis/中国专题图/省级数据/海南省/海南省.shp"),
-        help="Input shapefile containing polygon admin boundaries.",
-    )
-    parser.add_argument(
-        "--output",
-        type=Path,
-        default=Path(r"D:/cmafiles/L/database/nighttime/Precess/Presults/ntl_vza_shp.csv"),
-        help="Output CSV path with joined admin names.",
-    )
-    parser.add_argument(
-        "--lon-col",
-        type=str,
-        default="lon",
-        help="Longitude column name in the CSV.",
-    )
-    parser.add_argument(
-        "--lat-col",
-        type=str,
-        default="lat",
-        help="Latitude column name in the CSV.",
-    )
-    parser.add_argument(
-        "--admin-field",
-        type=str,
-        default="分县连接成",
-        help="Admin field name in the shapefile to export.",
-    )
-    args = parser.parse_args()
+    csv_path = Path(r"D:/cmafiles/L/database/nighttime/Precess/Presults/ntl_adjusted3_A.csv")
+    shp_path = Path(r"D:/cmafiles/L/database/gis/中国专题图/省级数据/海南省/海南省.shp")
+    output_csv = Path(r"D:/cmafiles/L/database/nighttime/Precess/Presults/ntl_adjusted_shp.csv")
+    lon_col = "lon"
+    lat_col = "lat"
+    admin_field = "分县连接成"
+    output_field = "county"
     join_admin_name(
-        csv_path=args.csv,
-        shp_path=args.shp,
-        output_csv=args.output,
-        lon_col=args.lon_col,
-        lat_col=args.lat_col,
-        admin_field=args.admin_field,
+        csv_path=csv_path,
+        shp_path=shp_path,
+        output_csv=output_csv,
+        lon_col=lon_col,
+        lat_col=lat_col,
+        admin_field=admin_field,
+        output_field=output_field,
     )
 
 
