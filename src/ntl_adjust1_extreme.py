@@ -1,7 +1,7 @@
 import pandas as pd
 
-DEFAULT_INPUT_CSV = "D:/cmafiles/L/database/nighttime/Precess/Presults/ntl_vza.csv"
-DEFAULT_OUTPUT_CSV = "D:/cmafiles/L/database/nighttime/Precess/Presults/ntl_adjusted1.csv"
+DEFAULT_INPUT_CSV = "C:/Users/liuy1/Desktop/0.文章/3.重点研发Chao/0.nightime/data/ntl/Presults/2022/ntl_vza.csv"
+DEFAULT_OUTPUT_CSV = "C:/Users/liuy1/Desktop/0.文章/3.重点研发Chao/0.nightime/data/ntl/Presults/2022/ntl_adjusted1.csv"
 
 
 def mark_extremes(df: pd.DataFrame) -> pd.DataFrame:
