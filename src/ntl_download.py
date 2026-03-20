@@ -6,10 +6,10 @@ from urllib.parse import urljoin
 from urllib.parse import urlparse
 
 # ====== 参数 ======
-TOKEN = "TOKEN"
-OUTDIR = r"D:\cmafiles\L\database\nighttime\VNP46A2_2024"  # 下载目录
-# =================================
-BASE = "https://ladsweb.modaps.eosdis.nasa.gov/archive/allData/5200/VNP46A2/2024/"
+TOKEN = "eyJ0eXAiOiJKV1QiLCJvcmlnaW4iOiJFYXJ0aGRhdGEgTG9naW4iLCJzaWciOiJlZGxqd3RwdWJrZXlfb3BzIiwiYWxnIjoiUlMyNTYifQ.eyJ0eXBlIjoiVXNlciIsInVpZCI6InJlYWxsaXV5IiwiZXhwIjoxNzc4MzcxNTMwLCJpYXQiOjE3NzMxODc1MzAsImlzcyI6Imh0dHBzOi8vdXJzLmVhcnRoZGF0YS5uYXNhLmdvdiIsImlkZW50aXR5X3Byb3ZpZGVyIjoiZWRsX29wcyIsImFjciI6ImVkbCIsImFzc3VyYW5jZV9sZXZlbCI6M30.foDx_jZe7GMFb3Ne6-Fs02iRJVZXb0EGDdgMy6hgDAGMULQCPoFRtgxiABfiW-TmTVYaMqprT1REpRTZHRO6KsROLvpM-5LjcvNrKeyK1pCA29a4p3wVeadfRagQuZaF_5Y7VZ8-mfMhgmhB_KqIRveRB4aVQwYxxo5QEPq65RE_bbNweGWEe8NLMgS43zo5O6gGhKUNRCTuXbA7qCC_9vLBIeCNZW07QgR19g7H5EH1VExBX4BovwbL-E5nTJuao0IIzWB4hNXHuLhpOkpsDtXZsD1aafAYezKCQu1NSZVMqGLypZEWVu16xscWXKtVBqFLDr1mEl6XIbND3owLsA"
+OUTDIR = r"D:/cmafiles/L/database/nightime/ntl/raw/VNP46A2_2023"  # 下载目录
+
+BASE = "https://ladsweb.modaps.eosdis.nasa.gov/archive/allData/5200/VNP46A2/2023/"
 TILES = {"h28v06", "h28v07", "h29v06", "h29v07"}
 H5_RE = re.compile(r'h\d{2}v\d{2}.*\.h5$', re.IGNORECASE)
 
@@ -17,9 +17,9 @@ def list_h5_files(day_url: str, headers: dict):
     r = requests.get(day_url, headers=headers, timeout=60)
     r.raise_for_status()
     html = r.text
-    # 从目录页抓所有 .h5 链接
+    # 从目录页抓链接
     files = set(re.findall(r'href="([^"]+\.h5)"', html, flags=re.IGNORECASE))
-    # 再过滤一下看起来像 h5 的
+    # 过滤
     return sorted([f for f in files if H5_RE.search(f)])
 
 def is_target_tile(fname: str) -> bool:
@@ -50,7 +50,7 @@ def main():
 
     total_ok = total_skip = total_err = 0
 
-    for d in range(1, 5):  # 2024 闰年
+    for d in range(132, 366):  # doy
         day = f"{d:03d}"
         day_url = urljoin(BASE, day + "/")
         print(f"\n== Day {day} : {day_url}")
