@@ -111,13 +111,13 @@ def main() -> None:
     parser.add_argument(
         "--ntl-dir",
         type=Path,
-        default=Path(r"D:/cmafiles/L/database/nighttime/Precess/Presults/VNP46A2"),
+        default=Path(r"C:/Users/liuy1/Desktop/0.文章/3.重点研发Chao/0.nightime/data/ntl/Presults/VNP46A2_2022"),
         help="Directory containing VNP46A2 (NTL) *_presult.tif files.",
     )
     parser.add_argument(
         "--vza-dir",
         type=Path,
-        default=Path(r"D:/cmafiles/L/database/nighttime/Precess/Presults/VNP46A1"),
+        default=Path(r"C:/Users/liuy1/Desktop/0.文章/3.重点研发Chao/0.nightime/data/ntl/Presults/VNP46A1_2022"),
         help="Directory containing VNP46A1 (VZA) *_presult.tif files.",
     )
     parser.add_argument(
@@ -135,7 +135,7 @@ def main() -> None:
     parser.add_argument(
         "--output-csv",
         type=Path,
-        default=Path(r"D:/cmafiles/L/database/nighttime/Precess/Presults/ntl_vza.csv"),
+        default=Path(r"C:/Users/liuy1/Desktop/0.文章/3.重点研发Chao/0.nightime/data/ntl/Presults/2022/ntl_vza.csv"),
         help="Output CSV path.",
     )
     args = parser.parse_args()
