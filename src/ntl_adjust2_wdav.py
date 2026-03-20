@@ -2,8 +2,8 @@ import numpy as np
 import pandas as pd
 
 PIXEL_SIZE = 1 / 240
-INPUT_CSV = "D:/cmafiles/L/database/nighttime/Precess/Presults/ntl_adjusted1_extreme.csv"
-OUTPUT_CSV = "D:/cmafiles/L/database/nighttime/Precess/Presults/ntl_adjusted2_wdav.csv"
+INPUT_CSV = "C:/Users/liuy1/Desktop/0.文章/3.重点研发Chao/0.nightime/data/ntl/Presults/2023/ntl_adjusted1_extreme.csv"
+OUTPUT_CSV = "C:/Users/liuy1/Desktop/0.文章/3.重点研发Chao/0.nightime/data/ntl/Presults/2023/ntl_adjusted2_wdav.csv"
 
 
 def add_pixel_indices(data: pd.DataFrame) -> pd.DataFrame:
