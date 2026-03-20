@@ -1,8 +1,8 @@
 import pandas as pd
 
 
-INPUT_CSV = "D:/cmafiles/L/database/nighttime/Precess/Presults/ntl_adjusted2_wdav.csv"
-OUTPUT_CSV = "D:/cmafiles/L/database/nighttime/Precess/Presults/ntl_adjusted3_A.csv"
+INPUT_CSV = "C:/Users/liuy1/Desktop/0.文章/3.重点研发Chao/0.nightime/data/ntl/Presults/2023/ntl_adjusted2_wdav.csv"
+OUTPUT_CSV = "C:/Users/liuy1/Desktop/0.文章/3.重点研发Chao/0.nightime/data/ntl/Presults/2023/ntl_adjusted3_A.csv"
 
 
 def add_pixel_id(df: pd.DataFrame) -> pd.DataFrame:
