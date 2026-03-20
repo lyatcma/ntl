@@ -8,8 +8,8 @@ from rasterio.io import MemoryFile
 from collections import defaultdict
 
 # ====== 参数 ======
-data_dir = "D:/cmafiles/L/database/nighttime/VNP46A2_2024"
-out_dir = "D:/cmafiles/L/database/nighttime/Precess/VNP46A2"
+data_dir = "D:/cmafiles/L/database/nightime/ntl/raw/VNP46A2_2022"
+out_dir = "D:/cmafiles/L/database/nightime/ntl/mosaic/VNP46A2_2022"
 ntl_path = "/HDFEOS/GRIDS/VIIRS_Grid_DNB_2d/Data Fields/DNB_BRDF-Corrected_NTL"
 qf_path  = "/HDFEOS/GRIDS/VIIRS_Grid_DNB_2d/Data Fields/Mandatory_Quality_Flag"
 crs = "EPSG:4326"
