@@ -8,9 +8,9 @@ from rasterio.io import MemoryFile
 from collections import defaultdict
 
 # ====== 参数 ======
-a1_dir = "D:/cmafiles/L/database/nighttime/VNP46A1_2024"
-a2_dir = "D:/cmafiles/L/database/nighttime/VNP46A2_2024"
-out_dir = "D:/cmafiles/L/database/nighttime/Precess/VNP46A1"
+a1_dir = "D:/cmafiles/L/database/nightime/ntl/raw/VNP46A1_2022"
+a2_dir = "D:/cmafiles/L/database/nightime/ntl/raw/VNP46A2_2022"
+out_dir = "D:/cmafiles/L/database/nightime/ntl/mosaic/VNP46A1_2022"
 
 vza_path = "/HDFEOS/GRIDS/VIIRS_Grid_DNB_2d/Data Fields/Sensor_Zenith"
 qf_path  = "/HDFEOS/GRIDS/VIIRS_Grid_DNB_2d/Data Fields/Mandatory_Quality_Flag"
