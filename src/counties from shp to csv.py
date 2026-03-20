@@ -53,9 +53,9 @@ def join_admin_name(
 
 
 def main() -> None:
-    csv_path = Path(r"D:/cmafiles/L/database/nighttime/Precess/Presults/ntl_adjusted3_A.csv")
+    csv_path = Path(r"C:/Users/liuy1/Desktop/0.文章/3.重点研发Chao/0.nightime/data/ntl/Presults/2023/ntl_adjusted3_A.csv")
     shp_path = Path(r"D:/cmafiles/L/database/gis/中国专题图/省级数据/海南省/海南省.shp")
-    output_csv = Path(r"D:/cmafiles/L/database/nighttime/Precess/Presults/ntl_adjusted_shp.csv")
+    output_csv = Path(r"C:/Users/liuy1/Desktop/0.文章/3.重点研发Chao/0.nightime/data/ntl/Presults/2023/ntl_adjusted4_county.csv")
     lon_col = "lon"
     lat_col = "lat"
     admin_field = "分县连接成"
